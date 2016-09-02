@@ -1,0 +1,25 @@
+
+The step-by-step instructions for the lab are below.
+
+For some problems, you'll be entering Python code 
+into the Python interpreter.  Recall that you start
+the interpreter from the command line as follows:
+
+$ python
+...
+>>>
+
+
+For some problems, you'll be reading the programs I've
+provided in this directory, running them, and making 
+changes.  You'll want to open these files and modify
+them using your favorite text editor (vi, emacs, nano,
+or whatever you've chosen).
+
+To run a program that's saved in a file "foo.py",
+you enter this at the command line:
+
+$ python foo.py
+
+
+
