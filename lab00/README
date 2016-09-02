@@ -16,11 +16,6 @@ changes.  You'll want to open these files and modify
 them using your favorite text editor (vi, emacs, nano,
 or whatever you've chosen).
 
-To run a program that's saved in a file "foo.py",
-you enter this at the command line:
-
-$ python foo.py
-
 (1) We've seen already that you can loop over a list of numbers
 as follows:
 
@@ -48,13 +43,13 @@ Now use "range" to create a list containing the odd numbers
 between 3 and 15, inclusive.  What happens if you just
 enter range(20,15) without the -1?
 
-(2) Open the file sum.py (in this directory) using a text editor
+(2) Open the file summer.py (in this directory) using a text editor
  and study the code.  Can you figure out what it's intended to do?
 Can you predict the output before you run it?
 
 Quit the editor and return to the command line.  Run the code:
 
-$ python sum.py
+$ python summer.py
 
 Then modify the program to add the numbers from 1 to 100, save it,
 and run it.
@@ -70,9 +65,9 @@ for estimating π?
 the product of the whole numbers from 1 to n:
 n*(n-1)*(n-2)*...3*2*1. 
 
-Copy the program sum.py to a new file factorial.py:
+Copy the program summer.py to a new file factorial.py:
 
-$ cp sum.py factorial.py
+$ cp summer.py factorial.py
 
 Then open factorial.py and change it so that it computes the
 factorial of a number of your choosing.  Test it thoroughly.
@@ -106,3 +101,8 @@ the average of *column* 11.
 
 If that's too easy, see if you can compute the average of
 all scores in the entire grid.
+
+If you figure out how to do *that*, then try implementing 
+the prediction algorithm you came up with on the first day
+of class to have Python print out the 30 predictions you made,
+one per line.

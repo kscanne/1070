@@ -1,7 +1,7 @@
 csvfile = file('ratings-training.csv')
 ratings = []
 for row in csvfile:
-  oneuser = row.split(',')
+  oneuser = row.rstrip().split(',')
   ratings.append(oneuser)
 
 
