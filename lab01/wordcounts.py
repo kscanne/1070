@@ -4,7 +4,7 @@ import re
 if __name__ == "__main__":
 
   freqdict = dict()
-  pattern = re.compile(r'([A-Za-z]+)')
+  pattern = re.compile(r"([A-Za-z]+)")
   for line in sys.stdin:   # for each line that we read in
     for word in re.findall(pattern, line):  # loop over all words on that line
       if word in freqdict:    # if we've seen the word already
