@@ -38,7 +38,7 @@ $ cat genesis.txt | python egrep.py 'Adam' | python wc.py
 etc.
 
 
-(2) In the previous exercise we saw how to count the number of lines
+(2) In the previous exercise we counted the number of lines
 containing a given word (or really any pattern).  Let's take this to
 the next level by writing a program that counts *all* of the words in
 a text file.  This code is in wordcounts.py which is another program
@@ -83,11 +83,26 @@ we chose as "training data"?
 (3) In last week's lab, the program netflix.py read in a 
 comma-separated values (CSV) file containing the movie rating data.
 That was relatively easy since we only had numbers in the file.
-CSV files are used to store tabular data of many different kinds - 
+But CSV files are used to store tabular data of many different kinds - 
 anything you might see in a spreadsheet. Reading these can be tricky
 if the fields are strings which might themselves contain commas!
 
 Fortunately, Python has tools for making it easy to read in CSV files.
+
+I've given you a CSV file tweets.csv that contains data from Twitter,
+showing the number of tweets (filtered in various ways) coming from
+a given location specified as a latitude and longitude.
+
+Study the program readcsv.py to see how we can read this data in and
+access the three fields for any given row.
+
+Ireland is contained (more or less) in a bounding box between
+latitudes +51.42 and +55.44, and between longitudes -5.42 to -10.67.
+Modify the script so that it prints out only the rows
+for which the (latitude,longitude) is in Ireland. You can replace
+the condition "if count > 0:" with an appropriate condition involving
+the latitudes and longitudes (Python allows you to combine conditions
+with the keywords "and" and "or" as needed).
 
 (4) Finally, we'll "scrape" some useful information from an HTML file.
 In any Wikipedia article, you'll see links in the left-hand column to
