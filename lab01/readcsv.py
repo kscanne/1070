@@ -6,5 +6,5 @@ with open('tweets.csv', 'rb') as f:
     lati = float(row['latitude'])
     longi = float(row['longitude'])
     count = int(row['tweets'])
-    if lati > 51 and lati < 54 and longi < -2 and longi > -10:
+    if count > 0:
       print lati, longi
