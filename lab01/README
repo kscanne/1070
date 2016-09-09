@@ -78,29 +78,31 @@ author identification?  Do you see particular words that are
 very characteristic of Shakespeare vs. Joyce, or vice versa?
 Is something like "Bloom" (the main character in Ulysses) 
 characteristic of James Joyce or an accident of the one book
-we chose?
+we chose as "training data"?
 
 (3) In last week's lab, the program netflix.py read in a 
 comma-separated values (CSV) file containing the movie rating data.
 That was relatively easy since we only had numbers in the file.
 CSV files are used to store tabular data of many different kinds - 
-anything you might see in a spreadsheet. Reading these is tricky
+anything you might see in a spreadsheet. Reading these can be tricky
 if the fields are strings which might themselves contain commas!
 
 Fortunately, Python has tools for making it easy to read in CSV files.
 
 (4) Finally, we'll "scrape" some useful information from an HTML file.
-One any Wikipedia article, you'll see links in the left-hand column to
+In any Wikipedia article, you'll see links in the left-hand column to
 the same topic in other languages.  This is a quick and easy way of
 building a massive multilingual dictionary, and for analysing the
-way different languages create technical terms.
+way different languages create technical terms, which is one of 
+my research interests.
 
-Open the program wiki.py and study the code. This program uses a
-library called "Beautiful Soup" for parsing HTML files.
+Open the program wiki.py in this directory and study the code.
+This program uses a library called "Beautiful Soup" for parsing HTML files.
 Beautiful Soup provides the ability to extract information from particular
 sections or tags in an HTML document.  Usually, you'll look at the HTML
-for a particular web page and see how the information is structured,
-and then write the Python program to extract exactly what you want.
+for a particular web page you're interested in scraping to see how the
+information is structured, and then write the Python program to
+extract exactly what you want.
 
 In this case, the program finds all <a> tags (links) that have
 an attribute "hreflang" (the language code of the linked document).
@@ -114,9 +116,11 @@ $ python wiki.py 'Barack_Obama'
 
 It's worth looking at the HTML itself to see how I came up with this.
 For example, you can download the HTML for the Wikipedia article on
-Cosmology:
+Cosmology using wget:
 
 $ wget https://en.wikipedia.org/wiki/Cosmology
 
 Then open it in your favorite text editor and search for the 
 links to other languages (you could search for "Italiano" for example).
+You'll see these are the only links that have an "hreflang" attribute,
+and that the title attribute contains the term we want.
