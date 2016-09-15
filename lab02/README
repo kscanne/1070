@@ -74,8 +74,8 @@ Which algorithm gives the best compression?
 Which languages can be compressed the best?
 Does this fit with your intuition about entropy?
 
-(3) In this exercise you'll learn the full decision tree
-classification algorithm, and apply it to the "Weather" 
+(3) In this exercise you'll learn the key step in the construction
+of a decision tree classifier, and will apply it to the "Weather" 
 spreadsheet we looked at in class.
 
 In lecture on Monday, I talked about a simple baseline algorithm
@@ -87,7 +87,7 @@ most frequently.
 
 The question to ask now is, "which column is the best one to use?"
 One approach to this was to see how many time this algorithm gives
-the right answer on the training data.  Entropy gives as way to compute
+the right answer on the training data.  Entropy gives us way to compute
 a more mathematically sophisticated answer.
 
 Consider the "Outlook" column in our spreadsheet as an example.
@@ -97,7 +97,7 @@ Outlook == sunny occurs five times, with distribution {Y,Y,N,N,N}.
 
 (a) First, compute the entropy of each of these distributions. A
 calculator will help here!   Call these three entropies O, R, and S.
-(b) The {Y,Y,Y,Y} for overcase makes us happy but it would have been
+(b) The {Y,Y,Y,Y} for overcast makes us happy but it would have been
 better if it had occurred more than 4/14 times in training. Which 
 is to say that we want to weight these entropies by how many
 elements are in each distribution.  Compute the weighted average of
