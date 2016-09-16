@@ -20,13 +20,14 @@ text selections in the languages Ama (spoken in Papua New Guinea),
 Warlpiri (Australia), Hungarian (Hungary), and Kashubian (Poland), 
 respectively.
 
-By looking at the letter distributions in these files, I've estimated
-estimate the entropy of each language as follows:
+Next, I've provided the number of symbols in each file, together
+with an *estimate* of the entropy of each language, by 
+looking at the letter distributions in the files:
 
-amm.txt: 2.702 bits/symbol
-wbp.txt: 2.722 bits/symbol
-hun.txt: 3.940 bits/symbol
-csb.txt: 4.068 bits/symbol
+amm.txt: 324499 symbols, 2.702 bits/symbol
+wbp.txt: 478433 symbols, 2.722 bits/symbol
+hun.txt: 460213 symbols, 3.940 bits/symbol
+csb.txt: 412548 symbols, 4.068 bits/symbol
 
 Which is to say that Ama and Warlpiri have relatively small entropy, and
 Hungarian and Kashubian have relatively high entropy.  If you open the
@@ -35,6 +36,10 @@ repetitiveness or redundancy in the writing system for the first two.
 And at a surface level, there are more symbols used in the writing systems
 for the latter two, when accents, and special characters are taken into 
 account. This contributes to the higher entropy also.
+
+You can see the size of each file, in bytes, by using the command
+
+$ ls -l
 
 There are a few compression programs you can use from the command line.
 For example, you can compress amm.txt using "Bzip2":
@@ -67,12 +72,16 @@ $ unzip amm.zip
 
 Apply these three compression algorithms to each of the four files.
 Compare the ratio of the file size before and after compression.
-You can use "ls -l" at the command line to see the size of all
-file in the current directory.
 
 Which algorithm gives the best compression?
 Which languages can be compressed the best?
 Does this fit with your intuition about entropy?
+
+[You'll see that some of the compression algorithms achieve a better
+bits-per-symbol ratio than my entropy estimates above.  They haven't
+really bettered the theoretical lower bound; it's just that my 
+estimates of the entropy are pretty bad (probably off by a factor
+of 2 or more).]
 
 (3) In this exercise you'll learn the key step in the construction
 of a decision tree classifier, and will apply it to the "Weather" 
