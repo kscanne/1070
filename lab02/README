@@ -41,6 +41,9 @@ You can see the size of each file, in bytes, by using the command
 
 $ ls -l
 
+(Remember that there are 8 bits per byte if you want to compute
+the number of bits per symbols in these files.)
+
 There are a few compression programs you can use from the command line.
 For example, you can compress amm.txt using "Bzip2":
 
