@@ -55,13 +55,13 @@ you can find... books, news articles, blog posts, Wikipedia articles,
 whatever (this is part of the fun and the challenge... how much text
 can you assemble in, say, 15 minutes?)
 
-I've copied the "wordcounts.py" scripts from lab01 into this directory,
+I've copied the "wordcounts.py" script from lab01 into this directory,
 so that if you've saved (hopefully a lot of) text in a file
 named "English.txt", then you can compute word frequencies as follows:
 
 $ cat English.txt | python wordcounts.py | more 
 
-(remember that "more" slows down the output; spacebar to page down,
+(remember that "more" slows down the output; space bar to page down,
 and "q" to quit)
 
 You can get the total number of words (approximately) by using:
@@ -69,11 +69,77 @@ You can get the total number of words (approximately) by using:
 $ cat English.txt | wc -w
 
 Use this to *estimate* the probabilities
-P(the), P(of), P(and), P(he), P(she), P(I), P(you), P(is), P(was)
+P(the), P(of), P(and), P(he), P(she), P(I), P(you), P(is), P(was), P(syzygy)
 
-and enter them into the Google Docs spreadsheet I shared with you.
+and enter them into one row of the Google Docs spreadsheet I shared
+with you before class.
 
+Check out the results from other groups, too.
 We'll analyze these results on Monday!
 
 
-(2) 
+(2) Classifying English dialects
+
+A basic example of a text classification problem is language or
+dialect identification.  In this exercise we'll lay the groundwork
+for a classifier that distinguishes varieties of English.
+
+One thing we'd like to figure out is the extent to which 
+individual words can be used as features for text classification.
+
+To this end, I've placed frequency lists for 16 varieties of English
+in this directory.  These were generated using texts I collected from
+various top-level domains on the web; e.g. the frequencies
+in en-IE.txt are from texts gathered from the .ie domain (Ireland).
+This isn't a 100% guarantee that the texts represent "English as
+spoken in Ireland", but it's a decent approximation for our
+purposes.
+
+Can you find examples of words that are strongly characteristic 
+of one dialect or another?  If we think of the words as "features"
+in the decision tree sense, then this is very much like finding the
+best features to "split on".  For starters, you can do this by browsing the
+frequency lists to look for candidates, or by using your intuition or
+knowledge of the different countries to come up with possible examples.
+
+You can test your intuitions with the Python program english.py 
+in this directory.  If you run it unmodified:
+
+$ python english.py
+
+it will show the conditional probabilities of "the", "of", and "and"
+in each dialect, and will show the entropy of the dialect labels,
+given the word.  Since there are 16 dialects (labels), the maximum
+entropy is log_2(16) = 4.0. You'll see the entropies for these three
+words are very close to 4.0, which is to say they give us virtually no
+information about which dialect we're looking at (no surprise).
+
+Anyway, simply change those words to the ones you'd like to test and rerun.
+What's the lowest entropy you can achieve?
+
+(3) Probability of a sentence
+
+What is the probability of the *sentence*
+
+S = "Soccer is my favourite sport"
+
+in, say, the en-US dialect?   How about in the other dialects?
+It's very hard to give a good answer to this that makes both mathematical
+and linguistic sense, so we won't bother trying that and we'll do something
+very naive that will be still be useful. Namely, we'll assume that each
+word of the sentence is *independent*, like independent rolls of a
+six-sided die; therefore:
+
+
+P(S|en-US) = P(Soccer|en-US) * P(is|en-US) * P(my|en-US) *
+             P(favourite|en-US) * P(sport|en-US)
+
+You can get these probabilities for each dialect by running the
+english.py program as in the previous exercise. Then just multiply
+them together by hand, with a calculator, or by pasting into a spreadsheet.
+But the nicest thing of all, if you'd like to test your Python skills,
+would be to try adding a few lines to english.py to loop over the
+dialects and compute the probability for each one.  Your call.
+
+For which dialect is the probability the highest?  Would you agree
+this is the most likely dialect classification for this sentence?
