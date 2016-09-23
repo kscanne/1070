@@ -1,0 +1,79 @@
+
+(1) In this exercise, we'll explore the following question: 
+"What is the probability of the word 'the' in English?"
+
+In the last lecture, I talked about some basic concepts from
+probability theory, including some examples where I computed the
+probability P(E) of an event E:
+
+P(E) = (# of successes) / (total number of events)
+
+and the idea of a conditional probability
+
+P(E|F) = probability of E, assuming F
+
+For the next couple of weeks, we'll be looking at machine
+learning in the context of text classification problems,
+and it will be helpful in doing this to look at languages in
+a "probabilistic" way.  By this, I mean that you can view any
+text as a sequence of "events", one for each word
+of the text, a bit like rolling a die over and over.
+But in this case, instead of a six-sided die, there are thousands
+of possible words that can appear. And unlike a (fair) die, where
+all six sides have equal probabilities, some words are much more
+probable than others in any human language.
+
+Now you probably know that the word "the" is (far and away) the
+most common word in English.  But what does that mean?
+What is "English", exactly? The set of all texts that have ever been 
+written in English?  The set of all things anyone has ever spoken
+in English?  The (infinite) set of all sentences that a speaker
+might ever utter?  And how about different time periods, e.g. Chaucer:
+"And that was seyd in forme and reverence,
+And short and quyk, and ful of hy sentence;
+Sownynge in moral vertu was his speche,
+And gladly wolde he lerne, and gladly teche."
+
+Or Scots English, e.g. Robert Burns:
+"Ye Pow'rs wha mak mankind your care,
+And dish them out their bill o’ fare,
+Auld Scotland wants nae skinking ware
+       That jaups in luggies;
+But, if ye wish her gratefu’ prayer,
+       Gie her a Haggis!"
+
+Anyway, the point is that this is tricky business.  The only 
+reasonable thing we can do in practice is attempt to *estimate*
+the probability P(the) by collecting as much text as possible,
+and counting the number of times "the" appears:
+
+P(the) ≈ (# of times "the" appears) / (total number of words in the text)
+
+For this exercise, you should start by collecting as much text in English as
+possible.  You can do this however you want, and can use any kind of text 
+you can find... books, news articles, blog posts, Wikipedia articles, 
+whatever (this is part of the fun and the challenge... how much text
+can you assemble in, say, 15 minutes?)
+
+I've copied the "wordcounts.py" scripts from lab01 into this directory,
+so that if you've saved (hopefully a lot of) text in a file
+named "English.txt", then you can compute word frequencies as follows:
+
+$ cat English.txt | python wordcounts.py | more 
+
+(remember that "more" slows down the output; spacebar to page down,
+and "q" to quit)
+
+You can get the total number of words (approximately) by using:
+
+$ cat English.txt | wc -w
+
+Use this to *estimate* the probabilities
+P(the), P(of), P(and), P(he), P(she), P(I), P(you), P(is), P(was)
+
+and enter them into the Google Docs spreadsheet I shared with you.
+
+We'll analyze these results on Monday!
+
+
+(2) 
