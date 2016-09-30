@@ -163,6 +163,8 @@ the option of using this same piece of code, and making similar tweaks:
 * change the "smoothing constant" k
 * ignore words that appear just once in training ("thresholding")
 * use pairs or triples of words as features in place of single words
+* can you find additional training data somewhere and use that to 
+  improve the results?
 
 It would be a REALLY good idea to try some of these ideas and see how 
 high you can push the accuracy of this classifier as a warmup
