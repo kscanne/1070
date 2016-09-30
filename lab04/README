@@ -39,8 +39,10 @@ unreasonable.
 is in the file naive_bayes.py.  Open that file and
 browse around, and see if you can make sense of the code.
 The code in the textbook is written as a spam vs. not-spam
-classifier, but I've changed that to "true" vs. "false" for 
-this lab.  For us, "true" means "happy", and "false" means "sad".
+classifier, but I've changed that to "true" vs. "false" here
+so it's a bit more generic-looking.
+For this lab, "true" means "happy", and "false" means "sad".
+A few things to look for in the code:
   
   (a) Find the place where I open the two files containing
       the training data and read them in.
@@ -51,8 +53,8 @@ this lab.  For us, "true" means "happy", and "false" means "sad".
   (c) I discussed the importance of smoothing when computing
       word probabilities; can you find the place in the code
       where word probabilities are computed and "smoothed"?
-      Hint: instead of "adding 1" to all word counts, the code 
-      adds a parameter "k"...
+      Hint: instead of "adding 1" to all word counts, this code 
+      adds a parameter "k" with default value 0.5...
   (d) Note that the code doesn't multiply probabilities for
       the reasons discussed in class; find where it takes
       log of the probabilities and adds those together.
@@ -85,10 +87,12 @@ these percentages.
 (3) Error analysis.  The next thing you'll see in the output is
 the five "truest false" tweets, and the five "falsest true" tweets. 
 The "truest false" tweets are the ones that are actually sad,
-but which look the happiest, and vice versa for "falsest true".
-Google Translate supports Irish to English translation; copy
-and paste these tweets into Google Translate and see if you can 
-figure out why the classifier is particularly confused in these cases.
+but which "look" the happiest to the classifier. Similarly for "falsest true".
+
+For better or worse, Google Translate supports Irish-to-English
+translation; copy and paste these tweets into Google Translate
+and see if you can figure out why the classifier is particularly
+confused in these cases.
 
 (4) The next part of the output shows the ten words most
 characteristic of happy tweets and sad tweets, respectively.
@@ -97,7 +101,7 @@ see if they appear reasonable. Can you "explain away" any
 that don't appear reasonable?  Should we change the model
 in some way?
 
-(5) The pattern [a-záéíóú'-]+ defines a word to be
+(5) The code uses the pattern [a-záéíóú'-]+ to define a word to be
     "a string of one or more letters, apostrophes, or hyphens".
 
     (a) With this definition, the hashtag "#kevin" gets truncated
@@ -137,7 +141,7 @@ with:
         answer.add(w)
     return answer
 
-(Extra Credit: automatically 100% on next quiz!) 
+(Extra Credit: an automatic 100% on next quiz!) 
 There's another kind of mutation in Irish called "eclipsis", 
 described here: http://nualeargais.ie/gnag/eklipse.htm
 Modify the code to take this mutation into account also,
@@ -149,8 +153,8 @@ often the best way to know the right choice to make is
 by trying it out and running the classifier on the test set.
 This philosophy will come in handy when we run our 
 "bakeoff" competition later in the semester.  Since we'll
-be doing a classifier of some kind, you have the option of
-using this code, and making similar tweaks:
+be doing a classifier of some kind for the bakeoff, you have
+the option of using this same piece of code, and making similar tweaks:
 
 * change the definition of a "word" (include hashtags, numbers, etc.?)
 * lump together upper/lowercase (or not)
