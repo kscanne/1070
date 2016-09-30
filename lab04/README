@@ -37,14 +37,14 @@ unreasonable.
 
 (1) The code for the training and running the classifier
 is in the file naive_bayes.py.  Open that file and
-browse around, and see if you can make sense of what's what. 
-The code in the book is written as a spam vs. not-spam
-classifier, but I've changed that to "true" vs. "false". 
-For us, "true" means "happy", and "false" means "sad".
+browse around, and see if you can make sense of the code.
+The code in the textbook is written as a spam vs. not-spam
+classifier, but I've changed that to "true" vs. "false" for 
+this lab.  For us, "true" means "happy", and "false" means "sad".
   
   (a) Find the place where I open the two files containing
       the training data and read them in.
-  (b) Now recall that in our Naive Bayes model, we treat "words"
+  (b) Recall that in our Naive Bayes model, we treat "words"
       as a features.  Find the place in the code where we
       break the texts into words; this relies on knowing
       any characters special to the language in question.
@@ -120,23 +120,49 @@ but if you say "the woman", it's "an bhean" (pronounced "un van").
 
 What's important for us is that "bean" and "bhean" are really
 the "same word" in some sense, so we *might* do better by counting 
-them together when training the classifier.  This is real-life data
-science! This is a place where some real-world domain knowledge 
-(that you might get by talking with an Irish speaker) could be
-a big help. It's also not clear whether this idea will help or not,
-and the only way to be sure is to try it, run the classifier, and
-compare with the earlier results.
+them together when training the classifier.
 
 To do this, you'll need to modify the "tokenize" function slightly.
-After the line 
+Just replace the current final line of the function:
 
-message = message.lower()
+    return set(all_words)
 
-which converts the string to lowercase, you can say something like this:
+with:
 
-if message[1] == 'h':
-  message.replace("h","",1)
+    answer = set()
+    for w in all_words:
+      if len(w)>1 and w[1]=='h':
+        answer.add(w.replace("h","",1))
+      else:
+        answer.add(w)
+    return answer
 
+(Extra Credit: automatically 100% on next quiz!) 
+There's another kind of mutation in Irish called "eclipsis", 
+described here: http://nualeargais.ie/gnag/eklipse.htm
+Modify the code to take this mutation into account also,
+and report results of the classifier.  
+
+The upshot of all of these exercises is that there are
+*many* choices you make when training a classifier, and
+often the best way to know the right choice to make is
+by trying it out and running the classifier on the test set.
+This philosophy will come in handy when we run our 
+"bakeoff" competition later in the semester.  Since we'll
+be doing a classifier of some kind, you have the option of
+using this code, and making similar tweaks:
+
+* change the definition of a "word" (include hashtags, numbers, etc.?)
+* lump together upper/lowercase (or not)
+* lump together words in others ways (e.g. Irish initial mutation, or
+  "stemming" words like "jumped", "jumps", "jumping" -> "jump")
+* change the "smoothing constant" k
+* ignore words that appear just once in training ("thresholding")
+* use pairs or triples of words as features in place of single words
+
+It would be a REALLY good idea to try some of these ideas and see how 
+high you can push the accuracy of this classifier as a warmup
+for the bakeoff.
 
 (7) If you have time, try changing the percentage of examples used
 for training vs. testing (the default is 75% training).  Try a few
