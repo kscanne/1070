@@ -1,0 +1,36 @@
+
+In this lab we will use hierarchical clustering to try and 
+reproduce the phylogenetic tree of (many) Indo-European languages.
+
+From the discussion in class, you know that we need:
+(a) a model that allows us to "vectorize" each language
+(b) a choice of distance function between vectorized languages
+
+For (a), we want a vectorization that is both easy to compute and
+which will allow for easy comparison between languages.  Using words
+as features won't really do, since it's unusual for many full words
+to match across even relatively close languages (French and Italian,
+say). Instead, we'll use what are called "character trigrams" as
+features.  These are just all of the three-letter sequences in the
+languages; for example, the English word "computer" consists of the
+character trigrams "com", "omp", "mpu", "put", "ute", "ter".
+Here we're relying on the fact that similar languages often
+(but not always!) have similar writing systems, so even if the
+full words don't match up, many character trigrams will. 
+
+The choice of distance function is tricky any time we use 
+counts (of words, trigrams, or whatever) to compute our
+vectorization.  The problem is that we might have different
+amounts of training data for each different language we're
+considering (in fact, you might recall this was the case for the
+lab where we looked at dialects of English).  When this happens,
+the Euclidean distance between two vectorized languages might
+be very different, but only because the *magnitudes* (lengths)
+of the vectors are very different.  So Euclidean distance and in 
+fact all of the Lp distances won't help.  A common solution 
+is to use the *angle* between the vectors as a distance
+measure.  The code for this lab uses what's called the
+"Pearson correlation", which we'll discuss in class next week.
+
+
+(1) The dataset for the
