@@ -74,21 +74,21 @@ Is there an "elbow" where you'd expect one?
 
 The second dataset consists of 1000 random recipes
 which we'd like to try clustering to see if the clusters
-correspond to some kind of "cuisine".
+correspond to different kinds of "cuisine", or perhaps
+different types of food (main courses, appetizers, desserts, etc.)
 
-Start by opening the dataset "recipes.txt" in your favorite text editor.
-
-Each row corresponds to a recipe.  The vectorization is very simple - it
-only takes into account which ingredients appear in a given recipe,
-independent of quantity, how they're prepared/combined, etc. 
+Start by opening the dataset "recipes.txt" in your favorite text editor
+and have a look around.  Each row corresponds to a recipe.  The vectorization
+is very simple - it only takes into account which ingredients appear in
+a given recipe, independent of quantity, how they're prepared/combined, etc. 
 
 Each column corresponds to one of 500 common ingredients. 
 If a recipe contains an ingredient, there's a 1 at that position
 in the table, and a 0 otherwise.
 
 (5) Review the definition of the Manhattan distance and convince yourself
-that it simply counts the number of ingredients that are in one 
-recipe but not the other.
+that the Manhattan distance between two recipes simply counts the number
+of ingredients that are in one recipe but not the other.
 
 (6) [Open-Ended] This question is much like what you might do for
 a semester project if you decide on a clustering problem.
@@ -99,10 +99,6 @@ Load the data:
 Then try clustering with different values of k:
 
 >>> kclust,totalerror=clusters.kcluster(data,k=5)
-
-Can you assign reasonable "cuisine" labels to any of the clusters?
-
-If you plot the total error as a function of k, do you see an "elbow"?
 
 One difficulty with this dataset is that the recipes don't have
 human-readable names, only unique numerical identifiers.
@@ -116,3 +112,11 @@ To see the ingredients in the recipe at index 10:
 To see all ingredients in all recipes in cluster kclust[0]:
 
 >>> [get_ingredients(r,ingredients,data) for r in kclust[0]]
+
+Can you assign reasonable labels to any of the clusters?
+
+Does the clusters seem to represent different cuisines
+or do the clusters represent something else entirely
+(e.g. desserts vs. main courses)?
+
+If you plot the total error as a function of k, do you see an "elbow"?
