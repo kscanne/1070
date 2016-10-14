@@ -181,9 +181,11 @@ def kcluster(rows,distance=pearson,k=4):
   for i in range(len(rows[0]))] for j in range(k)]
   
   lastmatches=None
+  totalerror=0
   for t in range(100):
     print 'Iteration %d' % t
     bestmatches=[[] for i in range(k)]
+    totalerror=0
     
     # Find which centroid is the closest for each row
     for j in range(len(rows)):
@@ -193,6 +195,7 @@ def kcluster(rows,distance=pearson,k=4):
         d=distance(clusters[i],row)
         if d<distance(clusters[bestmatch],row): bestmatch=i
       bestmatches[bestmatch].append(j)
+      totalerror+=distance(clusters[bestmatch],row)
 
     # If the results are the same as last time, this is complete
     if bestmatches==lastmatches: break
@@ -209,7 +212,7 @@ def kcluster(rows,distance=pearson,k=4):
           avgs[j]/=len(bestmatches[i])
         clusters[i]=avgs
       
-  return bestmatches
+  return bestmatches,totalerror
 
 def tanamoto(v1,v2):
   c1,c2,shr=0,0,0
