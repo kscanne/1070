@@ -6,7 +6,9 @@ digits (one digit in each image); given an image, we'd like to assign
 the correct label between 0 and 9.  We have several thousand of these
 that can be used for training and testing; these come from a well-known
 dataset (the so-called MNIST database of handwritten digits; see
-http://yann.lecun.com/exdb/mnist/). 
+http://yann.lecun.com/exdb/mnist/).  You can see sample images
+of the digit "5" here, for example:
+http://cs.nyu.edu/~roweis/data/mnist_train5.jpg
 
 The training data are contained in train.csv. If you open that
 file in your favorite text editor, you'll see that it is a standard
