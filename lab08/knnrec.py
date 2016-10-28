@@ -36,8 +36,10 @@ def best_guess(user_index, movie_index, verbose=True):
     if rating != '?' and rating != '-':
       prediction += float(users[nbr][movie_index])*similarities[nbr]
       total_sim += similarities[nbr]
-  prediction /= total_sim;
-  return prediction
+  if total_sim == 0.0:
+    return '-'
+  else:
+    return prediction / total_sim;
 
 def get_missing():
   for i in range(len(users)):
