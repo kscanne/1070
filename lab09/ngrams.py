@@ -1,5 +1,5 @@
 #coding: utf-8
-import random, re, codecs
+import random, re, codecs, sys
 
 def predictive_text(mod, count):
   curr = ()
@@ -11,7 +11,7 @@ def predictive_text(mod, count):
       for rec in sorted(followers, key=followers.get, reverse=True)[:3]:
         recs += ' ' + rec 
       print recs
-    word = raw_input("Enter a word: ")
+    word = raw_input("Enter a word: ").decode(sys.stdin.encoding)
     word = word.lower()
     curr = curr + (word,)
     if len(curr) >= n:
