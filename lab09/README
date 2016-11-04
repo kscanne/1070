@@ -14,8 +14,8 @@ having a look around.
 
 Next, you'll want to collect some text you can use to
 train the language model.  For example, you could
-download Romeo and Juliet by Shakespeare from Project
-Gutenberg: 
+download Romeo and Juliet by Williams Shakespeare from
+Project Gutenberg: 
 
 $ wget http://www.gutenberg.org/cache/epub/1112/pg1112.txt
 
@@ -103,7 +103,7 @@ Try building models for different values of n, and for different
 training texts, and save them with mnemonic names (like ws1, ws2, etc.)
 for the next steps.
 
-(2) To this point, we've thought of a language model of a way
+(2) To this point, we've thought of a language model as a way
 to assign probabilities to sentences and phrases, but a language
 model can also be used "generatively", which is to say we can
 use it to generate "random" text, not really randomly, but
@@ -151,21 +151,22 @@ that we saw; there is no real learning going on.
 (3) With only a slight tweak, we can turn this into a 
 predictive text engine!  In this case, once a user has input (n-1) words,
 we can use the model to suggest to the user the words that followed 
-the (n-1) words most often in the training texts.
+these (n-1) words most often in the training texts.
 
 You can try this out using the Romeo and Juliet 3-gram model as follows
 (here 15 is the number of words you want to type):
 
 >>> predictive_text(ws3,15)
 
-You'd probably be very unhappy with this as predictive text on your phone!
+You'd probably be very unhappy if this were the predictive text
+on your phone!
 
-Let's try retraining on collection of actual text messages. 
-In a separate window, do the following:
+Let's try retraining on a collection of actual text messages
+and see if we end up any better.  In a separate window, do the following:
 
 $ wget http://cybersecurity.cit.purduecal.edu/content/dl/master_corpus.txt
 
-This has some metadata we don't want, so use this magic command
+This file has some metadata we don't want, so use this magic command
 to extract out just the text messages into a new file sms.txt:
 
 $ cat master_corpus.txt | tr "\015" "\n" | iconv -f iso-8859-1 -t utf8 | cut -f 3 | sed 1d > sms.txt 
