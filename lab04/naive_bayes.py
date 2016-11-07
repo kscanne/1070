@@ -99,6 +99,19 @@ def p_true_given_word(word_prob):
     word, prob_if_true, prob_if_false = word_prob
     return prob_if_true / (prob_if_true + prob_if_false)
 
+def classify_test_set(classifier):
+    
+    with codecs.open('test.txt','r','utf-8') as file:
+        for line in file:
+            pieces = line.split("\t")
+            sentence_number = pieces[0]
+            sentence = pieces[1]
+            label = '0'
+            if classifier.classify(sentence) > 0.5:
+                label = '1'
+            print sentence_number + ',' + label
+
+
 def train_and_test_model():
 
     data = load_labeled_data()
@@ -139,6 +152,7 @@ def train_and_test_model():
     for t in falsest_words:
       print t[0].encode('utf-8')
 
+    #classify_test_set(classifier)
 
 if __name__ == "__main__":
     train_and_test_model()
