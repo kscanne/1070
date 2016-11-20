@@ -1,0 +1,9 @@
+
+=========
+Gephi Lab
+=========
+
+Gephi is a program for visualizing graphs.  It also includes 
+implementations of some of the graph algorithms we've discussed
+in class, like PageRank and the HITS (hub/authority) algorithm
+for discovering the most "important" nodes in a directed graph.
