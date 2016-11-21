@@ -7,3 +7,19 @@ Gephi is a program for visualizing graphs.  It also includes
 implementations of some of the graph algorithms we've discussed
 in class, like PageRank and the HITS (hub/authority) algorithm
 for discovering the most "important" nodes in a directed graph.
+
+In this lab we'll use it to create some visualizations of
+social networks. It used to be relatively easy to download
+a graph of your Facebook friends and all friendships between
+them, but this is now much trickier.  So instead, I've
+produced a few social graphs from Twitter that you'll
+find in this directory.
+
+br.gdf: Vertices are Twitter users with > 15 tweets in Breton
+gd.gdf: Vertices are Twitter users with > 50 tweets in Scottish Gaelic
+gv.gdf: Vertices are Twitter users with > 5 tweets in Manx Gaelic
+ha.gdf: Vertices are Twitter users with > 100 tweets in Hausa
+ht.gdf: Vertices are Twitter users with > 2000 tweets in Haitian Creole
+
+In each case, there is a directed edge from one user to another when
+the first mentions the second in a tweet.
