@@ -46,7 +46,18 @@ There are 4152 columns in total, and 145 rows (so 144 languages).
 
 The code that performs the hierarchical clustering is contained in the
 file clusters.py.  You're welcome to open that file in a text editor
-to get the lay of the land.  We'll actually perform the clustering
+to get the lay of the land.
+
+**************************************************
+**** For those of you working on a Mac laptop ****
+This is the first time we'll be using a Python library that's
+probably not already installed on your computer (called PIL).
+To install it:
+$ sudo easy_install pip
+$ sudo pip install Pillow
+**************************************************
+
+We'll actually perform the clustering
 at the Python prompt, so start the interpreter in the usual way:
 
 $ python
@@ -56,6 +67,8 @@ Then import the code from clusters.py as follows:
 >>> import clusters
 
 (the ">>>" is the Python prompt, so you don't type that)
+If you get an error about a missing module PIL, see the
+installation instructions above.  PIL should already be on hopper.
 
 Then load the dataset:
 
