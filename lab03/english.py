@@ -25,7 +25,7 @@ for d in dialects:
   freqfile = file(d + '.txt')
   total = 0
   for line in freqfile:
-    line.rstrip('\n')
+    line = line.rstrip('\n')
     pieces = line.split(',')
     count = int(pieces[1])
     table[d][pieces[0]] = count
