@@ -50,6 +50,9 @@ def auth_update(hubs, authorities, m):
     authorities[i] = newscore
   normalize(authorities)
 
+# columns here show outgoing edges from a given vertex, PLUS
+# a 1.0 on the diagonal to allow a traveler to stay put
+# This is the graph from lecture notes!
 m = []
 m.append([1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0])
 m.append([1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0])
