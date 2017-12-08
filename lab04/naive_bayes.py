@@ -52,9 +52,11 @@ def true_probability(word_probs, message):
             log_prob_if_true += math.log(1.0 - prob_if_true)
             log_prob_if_false += math.log(1.0 - prob_if_false)
             
-    prob_if_true = math.exp(log_prob_if_true)
-    prob_if_false = math.exp(log_prob_if_false)
-    return prob_if_true / (prob_if_true + prob_if_false)
+    ans = 1.0 / (1.0 + math.exp(log_prob_if_false - log_prob_if_true))
+    return ans
+    #prob_if_true = math.exp(log_prob_if_true)
+    #prob_if_false = math.exp(log_prob_if_false)
+    #return prob_if_true / (prob_if_true + prob_if_false)
 
 
 class NaiveBayesClassifier:
