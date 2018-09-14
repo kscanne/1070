@@ -57,11 +57,11 @@ and Ulysses by James Joyce:
 
 $ wget http://www.gutenberg.org/files/4300/4300-0.txt
 
-$ cat pg100.txt | python wordcounts.py
+$ cat 100-0.txt | python wordcounts.py
 
 To slow down the output, you can pipe through the tool "more":
 
-$ cat pg100.txt | python wordcounts.py | more
+$ cat 100-0.txt | python wordcounts.py | more
 
 (space to page down, q to quit)
 
