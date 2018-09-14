@@ -51,7 +51,7 @@ To experiment with it, we'll want some new text files to play with.
 
 For example, the Complete Works of Shakespeare from Project Gutenberg:
 
-$ wget http://www.gutenberg.org/cache/epub/100/pg100.txt
+$ wget http://www.gutenberg.org/files/100/100-0.txt
 
 and Ulysses by James Joyce:
 
