@@ -48,13 +48,22 @@ The code that performs the hierarchical clustering is contained in the
 file clusters.py.  You're welcome to open that file in a text editor
 to get the lay of the land.
 
-**************************************************
-**** For those of you working on a Mac laptop ****
-This is the first time we'll be using a Python library that's
-probably not already installed on your computer (called PIL).
+******************************************************
+**** For those of you running Python a Mac laptop ****
+If you're just using ssh to connect to hopper, you don't need to
+do anything special.  But if you're doing all of the work on your
+laptop, you'll need to install a Python library that's
+probably not already on your computer.
 To install it:
 $ sudo easy_install pip
 $ sudo pip install Pillow
+
+**** If you're running Ubuntu Linux on your laptop ****
+Same deal, if you're doing all of the work on hopper via ssh,
+then you don't need to do anything special.  If you need to 
+install the library on your laptop, you can do so 
+with this command:
+$ sudo apt install python-pip
 **************************************************
 
 We'll actually perform the clustering
