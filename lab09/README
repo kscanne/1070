@@ -164,7 +164,7 @@ on your phone!
 Let's try retraining on a collection of actual text messages
 and see if we end up any better.  In a separate window, do the following:
 
-$ wget http://cybersecurity.cit.purduecal.edu/content/dl/master_corpus.txt
+$ wget https://web.archive.org/web/20130921042957/http://cybersecurity.cit.purduecal.edu:80/content/dl/master_corpus.txt
 
 This file has some metadata we don't want, so use this magic command
 to extract out just the text messages into a new file sms.txt:
